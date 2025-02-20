@@ -1,10 +1,12 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 export function useArrayGeneration(initialSize: number) {
   const [array, setArray] = useState<number[]>([])
 
   const generateRandomArray = useCallback((size: number) => {
-    const newArray = Array.from({ length: size }, () => 
+    // Ensure size is within bounds
+    const validSize = Math.min(Math.max(size, 2), 15)
+    const newArray = Array.from({ length: validSize }, () => 
       Math.floor(Math.random() * 100)
     )
     setArray(newArray)
@@ -16,13 +18,13 @@ export function useArrayGeneration(initialSize: number) {
       .map(n => parseInt(n.trim(), 10))
       .filter(n => !isNaN(n))
     
-    if (numbers.length > 0) {
+    if (numbers.length >= 2 && numbers.length <= 15) {
       setArray(numbers)
     }
   }, [])
 
-  // Initialize array if empty
-  useState(() => {
+  // Initialize array
+  useEffect(() => {
     if (array.length === 0) {
       generateRandomArray(initialSize)
     }

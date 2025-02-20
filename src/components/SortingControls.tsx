@@ -3,7 +3,6 @@ interface SortingControlsProps {
   arraySize: number
   onSpeedChange: (value: number) => void
   onSizeChange: (value: number) => void
-  generateNewArray: () => void
   startSorting: () => void
   isSorting: boolean
 }
@@ -32,8 +31,8 @@ export default function SortingControls({ ...props }: SortingControlsProps) {
             </div>
             <input
               type="range"
-              min="0"
-              max="10"
+              min="2"
+              max="15"
               value={props.arraySize}
               onChange={(e) => props.onSizeChange(Number(e.target.value))}
               className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-400"
@@ -63,17 +62,9 @@ export default function SortingControls({ ...props }: SortingControlsProps) {
 
         <div className="flex items-center gap-2">
           <button
-            onClick={props.generateNewArray}
-            disabled={props.isSorting}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50 h-9 px-4 py-2"
-          >
-            Generate New Array
-          </button>
-          
-          <button
             onClick={props.startSorting}
             disabled={props.isSorting}
-            className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 h-9 px-4 py-2`}
+            className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 h-9 px-4 py-2"
           >
             {props.isSorting ? 'Sorting...' : 'Start Sorting'}
           </button>
