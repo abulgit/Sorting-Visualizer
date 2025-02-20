@@ -53,8 +53,11 @@ export default function SortingControls({ ...props }: SortingControlsProps) {
               min="100"
               max="1000"
               step="100"
-              value={props.speed}
-              onChange={(e) => props.onSpeedChange(Number(e.target.value))}
+              value={1100 - props.speed}
+              onChange={(e) => {
+                const sliderValue = Number(e.target.value)
+                props.onSpeedChange(1100 - sliderValue)
+              }}
               className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-400"
             />
           </div>
