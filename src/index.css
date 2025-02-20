@@ -17,3 +17,26 @@ body {
 ::-webkit-scrollbar-thumb {
   @apply bg-blue-500 rounded-full;
 }
+
+/* Add to existing styles */
+.main-content {
+  margin-left: 16rem; /* 256px */
+  width: calc(100% - 16rem);
+}
+
+.algorithm-button {
+  transition: all 0.2s ease;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+}

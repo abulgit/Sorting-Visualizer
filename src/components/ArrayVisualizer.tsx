@@ -8,15 +8,22 @@ export default function ArrayVisualizer({
   comparing?: number[] 
 }) {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      <div className="flex items-end justify-center h-64 gap-1">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+      <h3 className="text-lg font-semibold mb-4 text-gray-800">Visualization</h3>
+      <div className="flex items-end justify-center h-64 gap-1 bg-gray-50 rounded-lg p-4">
         {array.map((value, index) => (
           <motion.div
             key={index}
             layout
-            transition={{ type: 'spring', damping: 20 }}
-            className={`rounded-t-md transition-all duration-300 ${
-              comparing.includes(index) ? 'bg-red-500' : 'bg-blue-500'
+            transition={{ 
+              type: "spring",
+              stiffness: 300,
+              damping: 25
+            }}
+            className={`rounded-t-lg transition-colors duration-200 ${
+              comparing.includes(index)
+                ? 'bg-gradient-to-t from-red-500 to-red-400'
+                : 'bg-gradient-to-t from-blue-500 to-blue-400'
             }`}
             style={{
               width: `${100 / array.length}%`,
