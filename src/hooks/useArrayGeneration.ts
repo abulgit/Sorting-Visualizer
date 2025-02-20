@@ -1,6 +1,6 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 
-export function useArrayGeneration(initialSize: number) {
+export function useArrayGeneration() {
   const [array, setArray] = useState<number[]>([])
 
   const generateRandomArray = useCallback((size: number) => {
@@ -22,13 +22,6 @@ export function useArrayGeneration(initialSize: number) {
       setArray(numbers)
     }
   }, [])
-
-  // Initialize array
-  useEffect(() => {
-    if (array.length === 0) {
-      generateRandomArray(initialSize)
-    }
-  }, [initialSize, generateRandomArray, array.length])
 
   return {
     array,

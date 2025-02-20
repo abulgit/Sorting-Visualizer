@@ -5,13 +5,15 @@ export default function ArrayInput({
   generateNewArray,
   startSorting,
   isSorting,
-  algorithmName 
+  algorithmName,
+  arraySize 
 }: { 
   setCustomArray: (input: string) => void
   generateNewArray: () => void
   startSorting: () => void
   isSorting: boolean
   algorithmName: string
+  arraySize: number
 }) {
   const [values, setValues] = useState<string[]>(Array(10).fill(''))
 
@@ -109,7 +111,7 @@ export default function ArrayInput({
               disabled={isSorting}
               className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 h-9 px-4 py-2"
             >
-              Generate Random Array
+              Generate Random Array ({arraySize})
             </button>
 
             <button

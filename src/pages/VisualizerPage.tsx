@@ -34,7 +34,7 @@ export default function VisualizerPage() {
   const navigate = useNavigate()
   const [speed, setSpeed] = useState<number>(500)
   const [arraySize, setArraySize] = useState<number>(12)
-  const { array, generateRandomArray, setCustomArray, setArray } = useArrayGeneration(arraySize)
+  const { array, generateRandomArray, setCustomArray, setArray } = useArrayGeneration()
   const { sort, isSorting, comparingIndices } = useSortAlgorithm()
 
   useEffect(() => {
@@ -75,6 +75,7 @@ export default function VisualizerPage() {
             startSorting={handleSort}
             isSorting={isSorting}
             algorithmName={algorithmMap[algorithm].name}
+            arraySize={arraySize}
           />
         </div>
         
