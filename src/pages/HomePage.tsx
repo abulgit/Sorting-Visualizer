@@ -12,57 +12,83 @@ export default function HomePage() {
   const navigate = useNavigate()
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-teal-600 text-transparent bg-clip-text">
+    <div className="space-y-10">
+      <div className="space-y-2">
+        <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           Welcome to Sorting Visualizer
         </h1>
-        <p className="text-xl text-gray-600">
-          A visual guide to understanding sorting algorithms
+        <p className="text-lg text-zinc-500 dark:text-zinc-400">
+          An interactive way to visualize sorting algorithms in action.
         </p>
       </div>
 
-      <div className="grid gap-8">
-        <section className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-            How to Use
-          </h2>
-          <div className="space-y-4 text-gray-600">
-            <p>
-              1. Select a sorting algorithm from the sidebar to visualize its operation
-            </p>
-            <p>
-              2. Adjust the array size and animation speed using the controls
-            </p>
-            <p>
-              3. Input custom values or generate random arrays to sort
-            </p>
-            <p>
-              4. Watch the algorithm in action with color-coded animations
+      <div className="grid gap-6">
+        <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm">
+          <div className="p-6 flex flex-col space-y-2">
+            <h3 className="font-semibold leading-none tracking-tight text-zinc-900 dark:text-zinc-50">
+              Getting Started
+            </h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              Follow these steps to begin visualizing sorting algorithms.
             </p>
           </div>
-        </section>
+          <div className="p-6 pt-0">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center text-sm font-medium">
+                  1
+                </div>
+                <p className="text-sm text-zinc-700">Select an algorithm from the sidebar</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center text-sm font-medium">
+                  2
+                </div>
+                <p className="text-sm text-zinc-700">Customize array size and animation speed</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center text-sm font-medium">
+                  3
+                </div>
+                <p className="text-sm text-zinc-700">Generate a random array or input custom values</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center text-sm font-medium">
+                  4
+                </div>
+                <p className="text-sm text-zinc-700">Watch the sorting process with visual animations</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <section className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-            Available Algorithms
-          </h2>
-          <div className="space-y-4 text-gray-600">
-            <div>
-              <h3 className="font-semibold">Bubble Sort</h3>
-              <p>A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.</p>
+        <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div className="p-6 flex flex-col space-y-2">
+            <h3 className="font-semibold leading-none tracking-tight">Available Algorithms</h3>
+            <p className="text-sm text-muted-foreground">Learn about each sorting algorithm.</p>
+          </div>
+          <div className="p-6 pt-0 grid gap-4">
+            <div className="space-y-1.5">
+              <h4 className="text-sm font-medium">Bubble Sort</h4>
+              <p className="text-sm text-zinc-500">
+                A simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+              </p>
             </div>
-            <div>
-              <h3 className="font-semibold">Merge Sort</h3>
-              <p>An efficient, stable sorting algorithm that divides the array into smaller subarrays, sorts them, and then merges them back together.</p>
+            <div className="space-y-1.5">
+              <h4 className="text-sm font-medium">Merge Sort</h4>
+              <p className="text-sm text-zinc-500">
+                An efficient, stable sorting algorithm that uses a divide-and-conquer strategy to sort the elements.
+              </p>
             </div>
-            <div>
-              <h3 className="font-semibold">Quick Sort</h3>
-              <p>A highly efficient sorting algorithm that uses a divide-and-conquer strategy to sort elements around a pivot.</p>
+            <div className="space-y-1.5">
+              <h4 className="text-sm font-medium">Quick Sort</h4>
+              <p className="text-sm text-zinc-500">
+                A highly efficient sorting algorithm that uses partitioning to sort elements around a chosen pivot.
+              </p>
             </div>
             {/* Add other algorithms */}
           </div>
-        </section>
+        </div>
       </div>
     </div>
   )

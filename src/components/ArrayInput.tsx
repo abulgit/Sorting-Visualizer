@@ -33,10 +33,13 @@ export default function ArrayInput({ setCustomArray }: {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">Custom Array</h3>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
+    <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm">
+      <div className="p-6 flex flex-col space-y-2">
+        <h3 className="font-semibold leading-none tracking-tight">Custom Array</h3>
+        <p className="text-sm text-muted-foreground">Enter up to 10 numbers.</p>
+      </div>
+      <div className="p-6 pt-0">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-10 gap-2">
             {values.map((value, index) => (
               <div key={index} className="relative">
@@ -47,35 +50,32 @@ export default function ArrayInput({ setCustomArray }: {
                   onChange={(e) => handleInputChange(index, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   maxLength={2}
-                  className="w-full p-2 text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm"
+                  className="flex h-9 w-full rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3 py-1 text-sm shadow-sm transition-colors text-zinc-900 dark:text-zinc-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 text-center"
                 />
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs text-gray-400">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-1 bg-white dark:bg-zinc-950 text-xs text-zinc-400 dark:text-zinc-500">
                   {index}
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-4 text-sm text-gray-500 text-center">
-            Enter numbers (0-99) • Use arrow keys to navigate
-          </p>
-        </div>
 
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => setValues(Array(10).fill(''))}
-            className="flex-1 px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
-          >
-            Clear
-          </button>
-          <button
-            type="submit"
-            className="flex-1 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-teal-500 text-white hover:from-blue-600 hover:to-teal-600 transition-colors"
-          >
-            Update Array
-          </button>
-        </div>
-      </form>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setValues(Array(10).fill(''))}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+            >
+              Clear
+            </button>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 text-zinc-50 hover:bg-zinc-900/90 h-9 px-4 py-2"
+            >
+              Update Array
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 } 

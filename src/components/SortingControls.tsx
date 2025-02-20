@@ -10,58 +10,73 @@ interface SortingControlsProps {
 
 export default function SortingControls({ ...props }: SortingControlsProps) {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">Controls</h3>
-      <div className="space-y-6">
-        <div>
-          <label className="flex justify-between text-sm font-medium text-gray-600 mb-2">
-            <span>Array Size</span>
-            <span>{props.arraySize}</span>
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="10"
-            value={props.arraySize}
-            onChange={(e) => props.onSizeChange(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
+    <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm">
+      <div className="p-6 flex flex-col space-y-2">
+        <h3 className="font-semibold leading-none tracking-tight text-zinc-900 dark:text-zinc-50">
+          Controls
+        </h3>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          Adjust visualization parameters.
+        </p>
+      </div>
+      <div className="p-6 pt-0 space-y-6">
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label className="text-sm font-medium leading-none text-zinc-900 dark:text-zinc-50">
+                Array Size
+              </label>
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                {props.arraySize}
+              </span>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              value={props.arraySize}
+              onChange={(e) => props.onSizeChange(Number(e.target.value))}
+              className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-400"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label className="text-sm font-medium leading-none text-zinc-900 dark:text-zinc-50">
+                Animation Speed
+              </label>
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                {props.speed}ms
+              </span>
+            </div>
+            <input
+              type="range"
+              min="100"
+              max="1000"
+              step="100"
+              value={props.speed}
+              onChange={(e) => props.onSpeedChange(Number(e.target.value))}
+              className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-400"
+            />
+          </div>
         </div>
 
-        <div>
-          <label className="flex justify-between text-sm font-medium text-gray-600 mb-2">
-            <span>Animation Speed</span>
-            <span>{props.speed}ms</span>
-          </label>
-          <input
-            type="range"
-            min="100"
-            max="1000"
-            step="100"
-            value={props.speed}
-            onChange={(e) => props.onSpeedChange(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 pt-2">
+        <div className="flex items-center gap-2">
           <button
             onClick={props.generateNewArray}
-            className="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50 h-9 px-4 py-2"
           >
-            New Array
+            Generate New Array
           </button>
           
           <button
             onClick={props.startSorting}
             disabled={props.isSorting}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              props.isSorting 
-                ? 'bg-gray-200 text-gray-500 cursor-not-allowed' 
-                : 'bg-gradient-to-r from-blue-500 to-teal-500 text-white hover:from-blue-600 hover:to-teal-600'
+            className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 h-9 px-4 py-2 ${
+              props.isSorting ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >
-            {props.isSorting ? 'Sorting...' : 'Start Sort'}
+            {props.isSorting ? 'Sorting...' : 'Start Sorting'}
           </button>
         </div>
       </div>
