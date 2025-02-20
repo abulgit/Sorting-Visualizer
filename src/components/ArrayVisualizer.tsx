@@ -7,6 +7,9 @@ export default function ArrayVisualizer({
   array: number[]
   comparing?: number[] 
 }) {
+  // Find the maximum value in the array
+  const maxValue = Math.max(...array, 1) // Use 1 as minimum to avoid division by zero
+
   return (
     <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm">
       <div className="p-6 flex flex-col space-y-2">
@@ -35,10 +38,18 @@ export default function ArrayVisualizer({
               }`}
               style={{
                 width: `${100 / array.length}%`,
-                height: `${(value / 100) * 80}%`,
-                minWidth: '20px'
+                height: `${(value / maxValue) * 100}%`, // Calculate relative height
+                minWidth: '20px',
+                minHeight: '20px' // Add minimum height for visibility
               }}
-            />
+            >
+              {/* Optional: Show value on bar */}
+              <div className="flex justify-center items-end h-full">
+                <span className="text-xs text-white dark:text-zinc-900 pb-1">
+                  {value}
+                </span>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

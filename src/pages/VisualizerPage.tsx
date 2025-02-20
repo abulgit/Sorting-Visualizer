@@ -57,7 +57,10 @@ export default function VisualizerPage() {
             startSorting={handleSort}
             isSorting={isSorting}
           />
-          <ArrayInput setCustomArray={setCustomArray} />
+          <ArrayInput 
+            setCustomArray={setCustomArray} 
+            isSorting={isSorting}
+          />
         </div>
         
         <ArrayVisualizer array={array} comparing={comparingIndices} />

@@ -64,6 +64,7 @@ export default function SortingControls({ ...props }: SortingControlsProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={props.generateNewArray}
+            disabled={props.isSorting}
             className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50 h-9 px-4 py-2"
           >
             Generate New Array
@@ -72,9 +73,7 @@ export default function SortingControls({ ...props }: SortingControlsProps) {
           <button
             onClick={props.startSorting}
             disabled={props.isSorting}
-            className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 h-9 px-4 py-2 ${
-              props.isSorting ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+            className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 h-9 px-4 py-2`}
           >
             {props.isSorting ? 'Sorting...' : 'Start Sorting'}
           </button>

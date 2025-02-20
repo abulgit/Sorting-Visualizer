@@ -1,29 +1,37 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 
-export const useArrayGeneration = (initialSize: number) => {
+export function useArrayGeneration(initialSize: number) {
   const [array, setArray] = useState<number[]>([])
-  const [currentSize, setCurrentSize] = useState(initialSize)
 
   const generateRandomArray = useCallback((size: number) => {
     const newArray = Array.from({ length: size }, () => 
-      Math.floor(Math.random() * 100) + 10
+      Math.floor(Math.random() * 100)
     )
     setArray(newArray)
-    setCurrentSize(size)
   }, [])
 
   const setCustomArray = useCallback((input: string) => {
-    const numbers = input.split(',').map(Number).filter(n => !isNaN(n))
-    if (numbers.length <= 10) {
+    const numbers = input
+      .split(',')
+      .map(n => parseInt(n.trim(), 10))
+      .filter(n => !isNaN(n))
+    
+    if (numbers.length > 0) {
       setArray(numbers)
-      setCurrentSize(numbers.length)
     }
   }, [])
 
-  // Update array when size changes
-  useEffect(() => {
-    generateRandomArray(currentSize)
-  }, [currentSize, generateRandomArray])
+  // Initialize array if empty
+  useState(() => {
+    if (array.length === 0) {
+      generateRandomArray(initialSize)
+    }
+  }, [initialSize, generateRandomArray, array.length])
 
-  return { array, generateRandomArray, setCustomArray, setArray }
+  return {
+    array,
+    setArray,
+    generateRandomArray,
+    setCustomArray
+  }
 } 
