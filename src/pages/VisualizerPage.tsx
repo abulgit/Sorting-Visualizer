@@ -36,29 +36,25 @@ export default function VisualizerPage() {
   if (!algorithm || !algorithmMap[algorithm]) return null
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <div>
-        <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-teal-600 text-transparent bg-clip-text">
+        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 text-transparent bg-clip-text">
           {algorithmMap[algorithm]}
         </h1>
-        <p className="text-gray-600">
-          Visualizing {algorithmMap[algorithm].toLowerCase()} algorithm
-        </p>
       </div>
 
-      <div className="grid gap-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <SortingControls
             speed={speed}
             arraySize={arraySize}
             onSpeedChange={setSpeed}
             onSizeChange={setArraySize}
-            startSorting={handleSort}
-            isSorting={isSorting}
           />
           <ArrayInput 
             setCustomArray={setCustomArray}
             generateNewArray={() => generateRandomArray(arraySize)}
+            startSorting={handleSort}
             isSorting={isSorting}
           />
         </div>
