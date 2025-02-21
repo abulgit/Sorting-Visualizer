@@ -3,10 +3,10 @@ import ThemeToggle from './ThemeToggle'
 
 const algorithms = [
   { name: 'Bubble Sort', path: 'bubble-sort' },
-  { name: 'Merge Sort', path: 'merge-sort' },
-  { name: 'Quick Sort', path: 'quick-sort' },
   { name: 'Selection Sort', path: 'selection-sort' },
-  { name: 'Insertion Sort', path: 'insertion-sort' }
+  { name: 'Insertion Sort', path: 'insertion-sort' },
+  { name: 'Merge Sort', path: 'merge-sort' },
+  { name: 'Quick Sort', path: 'quick-sort' }
 ]
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -16,11 +16,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 transition-colors">
-      <div className="w-48 h-screen bg-gradient-to-b from-zinc-800 to-zinc-900 dark:from-zinc-900 dark:to-black fixed left-0 top-0 text-white">
+      <div className="w-48 h-screen bg-white dark:bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-900 fixed left-0 top-0 border-r border-zinc-200 dark:border-zinc-800">
         <div className="p-4">
           <h2 
             onClick={() => navigate('/')}
-            className="text-xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400 cursor-pointer"
+            className="text-xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-600 cursor-pointer"
           >
             Sorting Visualizer
           </h2>
@@ -29,10 +29,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <button
                 key={algo.path}
                 onClick={() => navigate(algo.path)}
-                className={`w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
+                className={`w-full px-3 py-2 rounded-lg text-left ${
                   currentPath === algo.path
-                    ? 'bg-gradient-to-r from-blue-500 to-teal-500 shadow-lg'
-                    : 'hover:bg-white/10'
+                    ? 'bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900'
+                    : 'border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800'
                 }`}
               >
                 {algo.name}

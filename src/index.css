@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-/* Keep the rest of your custom styles */
 
 @custom-variant dark (&:where(.dark, .dark *));
 body {
@@ -7,7 +6,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 8px;
 }
