@@ -53,7 +53,7 @@ export default function VisualizerPage() {
   return (
     <div className="space-y-4">
       <div className="space-y-1">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 text-transparent bg-clip-text">
+        <h1 className="text-2xl font-bold text-black dark:text-white">
           {algorithmMap[algorithm].name}
         </h1>
         <p className="text-sm text-zinc-500 dark:text-zinc-400">

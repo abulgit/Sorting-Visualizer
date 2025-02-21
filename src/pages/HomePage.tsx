@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div className="space-y-8">
       <div className="space-y-4 text-center">
-        <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-teal-600 text-transparent bg-clip-text">
+        <h1 className="text-4xl font-bold tracking-tight text-black dark:text-white">
           Sorting Algorithm Visualizer
         </h1>
         <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
