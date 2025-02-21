@@ -24,7 +24,7 @@ export default function ArrayVisualizer({
         <div className="flex items-end justify-center h-[330px] gap-1 bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4">
           {array.length === 0 ? (
             <div className="flex items-center justify-center w-full h-full text-zinc-500 dark:text-zinc-400">
-              Click "Generate Random Array" to start
+              Click 'Generate Random Array' to begin or enter your custom array!
             </div>
           ) : (
             array.map((value, index) => (
@@ -48,7 +48,6 @@ export default function ArrayVisualizer({
                   minHeight: '20px' 
                 }}
               >
-                {/* Optional: Show value on bar */}
                 <div className="flex justify-center items-end h-full">
                   <span className="text-xs text-white dark:text-zinc-900 pb-1">
                     {value}
