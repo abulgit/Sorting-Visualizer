@@ -144,7 +144,7 @@ export default function ArrayInput({
                 disabled={isSorting}
                 className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-green-600 dark:bg-green-500 text-white hover:bg-green-700 dark:hover:bg-green-600 h-9 px-4 py-2"
               >
-                {isSorting ? 'Sorting...' : `Let's ${algorithmName}!`}
+                {isSorting ? `${algorithmName}ing...` : `Let's ${algorithmName}!`}
               </button>
             </div>
           </form>
