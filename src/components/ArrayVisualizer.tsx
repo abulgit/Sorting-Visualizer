@@ -43,9 +43,9 @@ export default function ArrayVisualizer({
                 }`}
                 style={{
                   width: `${100 / array.length}%`,
-                  height: `${(value / maxValue) * 100}%`, // Calculate relative height
+                  height: `${(value / maxValue) * 100}%`, 
                   minWidth: '20px',
-                  minHeight: '20px' // Add minimum height for visibility
+                  minHeight: '20px' 
                 }}
               >
                 {/* Optional: Show value on bar */}

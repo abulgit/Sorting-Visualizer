@@ -16,7 +16,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 transition-colors">
-      {/* Sidebar - make it narrower */}
       <div className="w-48 h-screen bg-gradient-to-b from-zinc-800 to-zinc-900 dark:from-zinc-900 dark:to-black fixed left-0 top-0 text-white">
         <div className="p-4">
           <h2 
@@ -42,8 +41,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </div>
-
-      {/* Main Content - adjust margin and padding */}
       <div className="ml-48 flex-1 min-h-screen">
         <div className="p-4 max-w-7xl mx-auto">
           <ThemeToggle />

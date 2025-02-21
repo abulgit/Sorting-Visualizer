@@ -18,7 +18,7 @@ export default function ArrayInput({
   const [values, setValues] = useState<string[]>(Array(10).fill(''))
 
   const handleInputChange = (index: number, value: string) => {
-    const newValue = value.replace(/[^0-9]/g, '') // Only allow numbers
+    const newValue = value.replace(/[^0-9]/g, '') 
     const newValues = [...values]
     newValues[index] = newValue
     setValues(newValues)
@@ -26,7 +26,6 @@ export default function ArrayInput({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Convert strings to numbers, filter out empty values, and ensure they're valid numbers
     const validNumbers = values
       .map(v => v.trim())
       .filter(Boolean)
@@ -34,7 +33,7 @@ export default function ArrayInput({
       .filter(n => !isNaN(n))
       
     if (validNumbers.length === 0) {
-      return // Don't update if no valid numbers
+      return 
     }
     
     setCustomArray(validNumbers.join(','))

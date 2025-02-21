@@ -5,7 +5,6 @@ import LoadingSpinner from './components/LoadingSpinner'
 import ErrorBoundary from './components/ErrorBoundary'
 import { ThemeProvider } from './contexts/ThemeContext'
 
-// Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'))
 const VisualizerPage = lazy(() => import('./pages/VisualizerPage'))
 

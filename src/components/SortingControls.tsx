@@ -30,7 +30,7 @@ export default function SortingControls({ ...props }: SortingControlsProps) {
             <input
               type="range"
               min="2"
-              max="15"
+              max="20"
               value={props.arraySize}
               onChange={(e) => props.onSizeChange(Number(e.target.value))}
               className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-400"
