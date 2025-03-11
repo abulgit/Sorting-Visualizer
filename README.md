@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# Sorting Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Cleen interactive web application sorting algorithms visualizer. Watch in real-time as different sorting algorithms organize data, helping you understand how they work under the hood.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Visualizations**: Watch sorting algorithms in action with smooth animations
+- **Multiple Algorithms**: Implementations of popular sorting methods including:
+  - Bubble Sort
+  - Quick Sort
+  - Merge Sort
+  - Selection Sort
+  - Insertion Sort
+- **Speed Control**: Adjust the visualization speed to see every step or watch it zip through
+- **Array Size Control**: Experiment with different dataset sizes
+## Tech Stack
 
-## Expanding the ESLint configuration
+This project leverages modern web technologies for optimal performance and developer experience:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React 19**: Latest version of React for building the user interface
+- **TypeScript**: For type-safe code and better developer experience
+- **Vite**: Lightning-fast build tool and development server
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Framer Motion**: Production-ready animation library for smooth transitions
+- **React Router**: For seamless navigation between different views
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
